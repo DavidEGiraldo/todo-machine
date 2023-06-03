@@ -3,7 +3,6 @@ import { TodoFilter } from "./TodoFilter";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { AddTodoButton } from "./AddTodoButton";
-import "./App.css";
 
 const defaultTodos = [
   {text: "Leer un libro", completed: false},

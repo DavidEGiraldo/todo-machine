@@ -5,7 +5,7 @@ import { TodoItem } from "./TodoItem";
 import { AddTodoButton } from "./AddTodoButton";
 
 const defaultTodos = [
-  {text: "Leer un libro", completed: false},
+  {text: "Leer un libro", completed: true},
   {text: "Comprar el mercado", completed: false},
   {text: "Ordenar cuarto", completed: false},
   {text: "Terminar un curso", completed: false},

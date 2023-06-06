@@ -49,8 +49,8 @@ function App() {
             <TodoItem
               key={index}
               todo={todo}
-              toggleComplete={toggleComplete}
-              deleteTodo={deleteTodo}
+              toggleComplete={() => toggleComplete(todo)}
+              deleteTodo={() => deleteTodo(todo)}
             />
           ))}
         </TodoList>

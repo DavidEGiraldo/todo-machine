@@ -5,6 +5,8 @@ import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { AddTodoButton } from "./AddTodoButton";
 
+import mountains from "./nord-mountains.png";
+
 const defaultTodos = [
   { text: "Leer un libro", completed: true },
   { text: "Comprar el mercado", completed: false },
@@ -24,17 +26,37 @@ function App() {
     todo.text.toLowerCase().includes(searchValue.toLowerCase())
   );
 
-  console.log(searchValue);
+  const toggleComplete = (todo) => {
+    const updatedTodos = [...todos];
+    const todoIndex = updatedTodos.indexOf(todo);
+    updatedTodos[todoIndex].completed = !todo.completed;
+    setTodos(updatedTodos);
+  };
+
+  const deleteTodo = (todo) => {
+    const updatedTodos = todos.filter((item) => item !== todo);
+    setTodos(updatedTodos);
+  };
+
   return (
     <>
       <TodoTitle completed={completedTodos} total={totalTodos} />
       <TodoFilter searchValue={searchValue} setSearchValue={setSearchValue} />
 
-      <TodoList>
-        {filteredTodos.map((todo, index) => (
-          <TodoItem key={index} index={index} todo={todo} todos={todos} setTodos={setTodos}/>
-        ))}
-      </TodoList>
+      {totalTodos ? (
+        <TodoList>
+          {filteredTodos.map((todo, index) => (
+            <TodoItem
+              key={index}
+              todo={todo}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+            />
+          ))}
+        </TodoList>
+      ) : (
+        <img src={mountains} alt="ice mountains" />
+      )}
 
       <AddTodoButton />
     </>

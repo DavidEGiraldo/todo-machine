@@ -1,25 +1,47 @@
 import React from "react";
 import "./TodoTitle.css";
 
-const TodoTitle = ({ total, completed }) => {
+const TodoTitle = ({ total, completed, error, loading }) => {
+  let h2;
+
+  if (error) {
+    h2 = (
+      <h2>
+        <span id="error">¡Ha habido un error!</span>... Parece que tus To-Do's
+        se quedaron congelados
+      </h2>
+    );
+  } else if (loading) {
+    h2 = (
+      <h2>
+        Estamos <span id="loading"> calentando</span> tus To-Do's...
+      </h2>
+    );
+  } else if (total === 0) {
+    h2 = (
+      <h2>
+        Hace mucho frío aquí <span>¡Crea un nuevo To-Do!</span>
+      </h2>
+    );
+  } else if (total === completed) {
+    h2 = (
+      <h2>
+        <span>¡Felicidades!</span> Completaste todos tus To-Do's ... Ahora
+        puedes descansar
+      </h2>
+    );
+  } else {
+    h2 = (
+      <h2>
+        Has completado <span>{completed}</span> de <span>{total}</span> To-Do's
+      </h2>
+    );
+  }
+  
   return (
     <>
       <h1>To-Do Machine</h1>
-      {total === 0 ? (
-        <h2>
-          Hace mucho frío aquí <span>¡Crea un nuevo To-Do!</span>
-        </h2>
-      ) : total === completed ? (
-        <h2>
-          <span>¡Felicidades!</span> Completaste todos tus To-Do's ... Ahora
-          puedes descansar
-        </h2>
-      ) : (
-        <h2>
-          Has completado <span>{completed}</span> de <span>{total}</span>{" "}
-          To-Do's
-        </h2>
-      )}
+      {h2}
     </>
   );
 };

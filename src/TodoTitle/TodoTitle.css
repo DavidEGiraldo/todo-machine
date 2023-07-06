@@ -32,3 +32,11 @@ h2 > span {
   color: var(--nord7);
   transition: color 400ms ease-in-out 0s;
 }
+
+#error {
+  color: var(--nord11)
+}
+
+#loading {
+  color: var(--nord13)
+}

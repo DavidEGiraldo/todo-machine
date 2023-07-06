@@ -5,6 +5,7 @@ import { TodoFilter } from "../TodoFilter";
 import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { AddTodoButton } from "../AddTodoButton";
+import { TodoLoader } from "../TodoLoader";
 
 import mountains from "./nord-mountains.png";
 
@@ -21,7 +22,12 @@ const AppUI = ({
 }) => {
   return (
     <>
-      <TodoTitle completed={completedTodos} total={totalTodos} />
+      <TodoTitle
+        completed={completedTodos}
+        total={totalTodos}
+        error={error}
+        loading={loading}
+      />
       <TodoFilter searchValue={searchValue} setSearchValue={setSearchValue} />
 
       {totalTodos ? (
@@ -37,14 +43,7 @@ const AppUI = ({
         </TodoList>
       ) : (
         <>
-          {error && (
-            <p>
-              Ha habido un error... Parece que tus To-Do's se quedaron
-              congelados
-            </p>
-          )}
-          {loading && <p>Estamos calentando tus To-Do's...</p>}
-          <img src={mountains} alt="ice mountains" />
+          {loading ? <TodoLoader /> : <img src={mountains} alt="ice mountains" />}
         </>
       )}
 

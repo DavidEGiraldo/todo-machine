@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodoContext } from "../TodoContext";
 import "./TodoTitle.css";
 
-const TodoTitle = ({ total, completed, error, loading }) => {
+const TodoTitle = () => {
+  const {
+    totalTodos: total,
+    completedTodos: completed,
+    error,
+    loading,
+  } = useContext(TodoContext);
+
   let h2;
 
   if (error) {
@@ -37,7 +45,7 @@ const TodoTitle = ({ total, completed, error, loading }) => {
       </h2>
     );
   }
-  
+
   return (
     <>
       <h1>To-Do Machine</h1>

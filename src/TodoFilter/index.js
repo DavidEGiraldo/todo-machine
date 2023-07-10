@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodoContext } from "../TodoContext";
 import "./TodoFilter.css";
 
-const TodoFilter = ({ searchValue, setSearchValue }) => {
+const TodoFilter = () => {
+  const { searchValue, setSearchValue } = useContext(TodoContext);
+
   return (
     <div className="todo-filter">
       <svg

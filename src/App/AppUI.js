@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { TodoTitle } from "../TodoTitle";
 import { TodoFilter } from "../TodoFilter";
@@ -6,29 +6,26 @@ import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { AddTodoButton } from "../AddTodoButton";
 import { TodoLoader } from "../TodoLoader";
+import { Modal } from "../Modal";
+import { TodoForm } from "../TodoForm";
+import { TodoContext } from "../TodoContext";
 
 import mountains from "./nord-mountains.png";
 
-const AppUI = ({
-  completedTodos,
-  totalTodos,
-  searchValue,
-  setSearchValue,
-  filteredTodos,
-  toggleComplete,
-  deleteTodo,
-  loading,
-  error,
-}) => {
+const AppUI = () => {
+  const {
+    totalTodos,
+    filteredTodos,
+    toggleComplete,
+    deleteTodo,
+    loading,
+    showModal
+  } = useContext(TodoContext);
+
   return (
     <>
-      <TodoTitle
-        completed={completedTodos}
-        total={totalTodos}
-        error={error}
-        loading={loading}
-      />
-      <TodoFilter searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TodoTitle />
+      <TodoFilter />
 
       {totalTodos ? (
         <TodoList>
@@ -43,11 +40,21 @@ const AppUI = ({
         </TodoList>
       ) : (
         <>
-          {loading ? <TodoLoader /> : <img src={mountains} alt="ice mountains" />}
+          {loading ? (
+            <TodoLoader />
+          ) : (
+            <img src={mountains} alt="ice mountains" />
+          )}
         </>
       )}
 
       <AddTodoButton />
+
+      {showModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
     </>
   );
 };

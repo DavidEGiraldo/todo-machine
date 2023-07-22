@@ -1,12 +1,32 @@
-# Repositorio base del Curso de Introducción a React.js en Platzi
+# Todo Machine
 
-¡Hola, Platzinauta!
+Todo Machine es una aplicación web para crear y administrar listas de pendientes de manera sencilla y eficiente. Desarrollada con React, HTML y CSS utilizando create-react-app, esta herramienta te permite organizar tus tareas diarias de forma intuitiva y rápida.
 
-En este repositorio encontrarás el código de todas las clases del [Curso de Introducción a React.js](https://platzi.com/reactjs). Para empezar solo debes clonar este repositorio (`git clone`), instalar sus dependencias (`npm i`) y ejecutar la aplicación (`npm start`).
+## Características principales
 
-La rama principal contiene el código con el que eempezamos el curso. En las demás ramas encontrarás el código de las siguientes clases y finalmente el deploy de la aplicación.
+- Agrega, elimina y marca tareas como completadas.
+- Interfaz de usuario amigable, receptiva y responsiva.
+- Almacenamiento local para conservar tus listas incluso después de cerrar el navegador.
+- Despliegue en línea: Visita la [demostración](https://degiraldod-shopi.netlify.app) en GitHub Pages.
 
-¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
+## Contribuciones
+
+Las contribuciones son bienvenidas y apreciadas. Si encuentras errores, tienes ideas para nuevas características o mejoras, por favor, abre un "Issue" o envía un "Pull Request". 
+
+## Enlaces útiles
+
+- [Documentación de React](https://reactjs.org/docs/getting-started.html)
+- [Documentación Create React App](https://github.com/facebook/create-react-app)
+  
+## Créditos
+
+Este proyecto fue desarrollado por [David Giraldo](https://github.com/DavidEGiraldo).
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Siéntete libre de utilizar el código en tus propios proyectos y modificarlo según tus necesidades.
+
+------------------
 
 ## Getting Started with Create React App
 

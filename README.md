@@ -7,7 +7,7 @@ Todo Machine es una aplicación web para crear y administrar listas de pendiente
 - Agrega, elimina y marca tareas como completadas.
 - Interfaz de usuario amigable, receptiva y responsiva.
 - Almacenamiento local para conservar tus listas incluso después de cerrar el navegador.
-- Despliegue en línea: Visita la [demostración](https://degiraldod-shopi.netlify.app) en GitHub Pages.
+- Despliegue en línea: Visita la [demostración](https://davidegiraldo.github.io/todo-machine/) en GitHub Pages.
 
 ## Contribuciones
 

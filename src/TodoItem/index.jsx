@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as CheckboxSVG } from "./square-check-solid.svg";
-import { ReactComponent as DeleteSVG } from "./square-xmark-solid.svg";
+import CheckboxSVG from "./square-check-solid.svg?react";
+import DeleteSVG from "./square-xmark-solid.svg?react";
 import "./TodoItem.css";
 
 const TodoItem = ({ todo, toggleComplete, deleteTodo }) => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { TodoContext } from "../TodoContext";
-import { ReactComponent as AddSVG } from "./square-plus-solid.svg";
+import AddSVG from "./square-plus-solid.svg?react";
 import "./AddTodoButton.css";
 
 const AddTodoButton = () => {

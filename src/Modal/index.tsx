@@ -1,11 +1,14 @@
-import React from "react";
 import { createPortal } from "react-dom";
 import "./Modal.css";
 
-const Modal = ({ children }) => {
+interface ModalProps {
+  children: React.ReactNode;
+}
+
+const Modal: React.FC<ModalProps> = ({ children }) => {
   return createPortal(
     <div className="modal">{children}</div>,
-    document.getElementById("modal")
+    document.getElementById("modal") as Element
   );
 };
 

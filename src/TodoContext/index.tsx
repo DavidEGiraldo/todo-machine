@@ -1,28 +1,55 @@
 import React, { createContext, useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = createContext();
+interface Todo {
+  text: string;
+  completed: boolean;
+}
 
-// const defaultTodos = [
-//   { text: "Leer un libro", completed: true },
-//   { text: "Comprar el mercado", completed: false },
-//   { text: "Ordenar cuarto", completed: false },
-//   { text: "Terminar un curso", completed: false },
-//   { text: "Escuchar una canción", completed: true },
-// ];
+interface TodoProviderProps {
+  children: React.ReactNode;
+}
 
-// localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos))
-// localStorage.removeItem("TODOS_V1")
+interface TodoContextProps {
+  completedTodos: number;
+  totalTodos: number;
+  searchValue: string;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+  filteredTodos: Todo[];
+  toggleComplete: (todo: Todo) => void;
+  deleteTodo: (todo: Todo) => void;
+  loading: boolean;
+  error: boolean;
+  showModal: boolean;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  addTodo: (todo: string) => void;
+}
 
-const TodoProvider = ({ children }) => {
-  const [searchValue, setSearchValue] = useState("");
+const TodoContext = createContext<TodoContextProps>({
+  completedTodos: 0,
+  totalTodos: 0,
+  searchValue: "",
+  setSearchValue: () => {},
+  filteredTodos: [],
+  toggleComplete: () => {},
+  deleteTodo: () => {},
+  loading: false,
+  error: false,
+  showModal: false,
+  setShowModal: () => {},
+  addTodo: () => {},
+});
+
+
+const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
+  const [searchValue, setSearchValue] = useState<string>("");
 
   const {
     item: todos,
     saveItem: saveTodos,
     loading,
     error,
-  } = useLocalStorage("TODOS_V1", []);
+  } = useLocalStorage<Todo[]>("TODOS_V1", []);
 
   const completedTodos = todos.filter((todo) => todo.completed).length;
 
@@ -32,21 +59,21 @@ const TodoProvider = ({ children }) => {
     todo.text.toLowerCase().includes(searchValue.toLowerCase())
   );
 
-  const toggleComplete = (todo) => {
+  const toggleComplete = (todo: Todo) => {
     const updatedTodos = [...todos];
     const todoIndex = updatedTodos.indexOf(todo);
     updatedTodos[todoIndex].completed = !todo.completed;
     saveTodos(updatedTodos);
   };
 
-  const deleteTodo = (todo) => {
+  const deleteTodo = (todo: Todo) => {
     const updatedTodos = todos.filter((item) => item !== todo);
     saveTodos(updatedTodos);
   };
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
-  const addTodo = (todo) => {
+  const addTodo = (todo: string) => {
     const updatedTodos = [...todos];
     updatedTodos.push({
       text: todo,
@@ -77,4 +104,4 @@ const TodoProvider = ({ children }) => {
   );
 };
 
-export { TodoContext, TodoProvider };
+export { TodoContext, TodoProvider, type Todo };

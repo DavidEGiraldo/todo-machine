@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
-const useLocalStorage = (itemName, initialValue) => {
-  const [item, setItem] = useState(initialValue);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+const useLocalStorage = <T,>(itemName: string, initialValue: T) => {
+  const [item, setItem] = useState<T>(initialValue);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
 
-        let parsedItem;
+        let parsedItem: T;
 
         if (!localStorageItem) {
           localStorage.setItem(itemName, JSON.stringify(initialValue));
@@ -27,7 +27,7 @@ const useLocalStorage = (itemName, initialValue) => {
     }, 2000);
   }, []);
 
-  const saveItem = (newItem) => {
+  const saveItem = (newItem: T) => {
     localStorage.setItem(itemName, JSON.stringify(newItem));
     setItem(newItem);
   };

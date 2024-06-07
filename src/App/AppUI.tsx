@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 import { TodoTitle } from "../TodoTitle";
 import { TodoFilter } from "../TodoFilter";

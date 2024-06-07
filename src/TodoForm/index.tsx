@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { TodoContext } from "../TodoContext";
 
 import "./TodoForm.css";
@@ -8,7 +8,7 @@ const TodoForm = () => {
 
   const [newTodo, setNewTodo] = useState("");
 
-  const onSubmit = (event) => {
+  const onSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (newTodo.trim()) addTodo(newTodo);
     setShowModal(false);

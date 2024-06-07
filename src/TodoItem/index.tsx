@@ -1,9 +1,15 @@
-import React from "react";
+import { type Todo } from "../TodoContext";
 import CheckboxSVG from "./square-check-solid.svg?react";
 import DeleteSVG from "./square-xmark-solid.svg?react";
 import "./TodoItem.css";
 
-const TodoItem = ({ todo, toggleComplete, deleteTodo }) => {
+interface TodoItemProps {
+  todo: Todo;
+  toggleComplete: () => void;
+  deleteTodo: () => void;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleComplete, deleteTodo }) => {
   return (
     <li>
       <CheckboxSVG

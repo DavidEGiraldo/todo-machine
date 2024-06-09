@@ -1,15 +1,18 @@
-import { useContext } from "react";
-import { TodoContext } from "../TodoContext";
 import "./TodoTitle.css";
 
-const TodoTitle = () => {
-  const {
-    totalTodos: total,
-    completedTodos: completed,
-    error,
-    loading,
-  } = useContext(TodoContext);
+interface TodoTitleProps {
+  totalTodos: number;
+  completedTodos: number;
+  error: boolean;
+  loading: boolean;
+}
 
+const TodoTitle: React.FC<TodoTitleProps> = ({
+  totalTodos,
+  completedTodos,
+  error,
+  loading
+}) => {
   let h2;
 
   if (error) {
@@ -25,13 +28,13 @@ const TodoTitle = () => {
         Estamos <span id="loading"> calentando</span> tus To-Do's...
       </h2>
     );
-  } else if (total === 0) {
+  } else if (totalTodos === 0) {
     h2 = (
       <h2>
         Hace mucho frío aquí <span>¡Crea un nuevo To-Do!</span>
       </h2>
     );
-  } else if (total === completed) {
+  } else if (totalTodos === completedTodos) {
     h2 = (
       <h2>
         <span>¡Felicidades!</span> Completaste todos tus To-Do's ... Ahora
@@ -41,7 +44,7 @@ const TodoTitle = () => {
   } else {
     h2 = (
       <h2>
-        Has completado <span>{completed}</span> de <span>{total}</span> To-Do's
+        Has completado <span>{completedTodos}</span> de <span>{totalTodos}</span> To-Do's
       </h2>
     );
   }

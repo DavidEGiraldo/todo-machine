@@ -1,9 +1,11 @@
-import { useContext } from "react";
-import { TodoContext } from "../TodoContext";
 import "./TodoFilter.css";
 
-const TodoFilter = () => {
-  const { searchValue, setSearchValue } = useContext(TodoContext);
+interface TodoFilterProps {
+  searchValue: string;
+  setSearchValue: (value: string) => void;
+}
+
+const TodoFilter: React.FC<TodoFilterProps> = ({ searchValue, setSearchValue}) => {
 
   return (
     <div className="todo-filter">

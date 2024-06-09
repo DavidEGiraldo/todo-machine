@@ -11,21 +11,28 @@ import { TodoForm } from "../TodoForm";
 import { TodoContext } from "../TodoContext";
 
 import mountains from "./nord-mountains.png";
+import { TodoHeader } from "../TodoHeader";
 
 const AppUI = () => {
   const {
-    totalTodos,
-    filteredTodos,
-    toggleComplete,
+    completedTodos,
     deleteTodo,
+    error,
+    filteredTodos,
     loading,
-    showModal
+    searchValue,
+    setSearchValue,
+    showModal,
+    toggleComplete,
+    totalTodos,
   } = useContext(TodoContext);
 
   return (
     <>
-      <TodoTitle />
-      <TodoFilter />
+      <TodoHeader>
+        <TodoTitle {...{ completedTodos, error, loading, totalTodos }} />
+        <TodoFilter {...{ searchValue, setSearchValue }} />
+      </TodoHeader>
 
       {totalTodos ? (
         <TodoList>

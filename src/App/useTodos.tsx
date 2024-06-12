@@ -1,14 +1,8 @@
-import React, { createContext, useState } from "react";
+import { useState } from "react";
+
 import { useLocalStorage } from "./useLocalStorage";
 
-interface Todo {
-  text: string;
-  completed: boolean;
-}
-
-interface TodoProviderProps {
-  children: React.ReactNode;
-}
+import { type Todo } from "../Interfaces";
 
 interface TodoContextProps {
   completedTodos: number;
@@ -25,23 +19,7 @@ interface TodoContextProps {
   addTodo: (todo: string) => void;
 }
 
-const TodoContext = createContext<TodoContextProps>({
-  completedTodos: 0,
-  totalTodos: 0,
-  searchValue: "",
-  setSearchValue: () => {},
-  filteredTodos: [],
-  toggleComplete: () => {},
-  deleteTodo: () => {},
-  loading: false,
-  error: false,
-  showModal: false,
-  setShowModal: () => {},
-  addTodo: () => {},
-});
-
-
-const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
+const useTodos = (): TodoContextProps => {
   const [searchValue, setSearchValue] = useState<string>("");
 
   const {
@@ -82,26 +60,20 @@ const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
     saveTodos(updatedTodos);
   };
 
-  return (
-    <TodoContext.Provider
-      value={{
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        filteredTodos,
-        toggleComplete,
-        deleteTodo,
-        loading,
-        error,
-        showModal,
-        setShowModal,
-        addTodo,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
-};
+  return {
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    filteredTodos,
+    toggleComplete,
+    deleteTodo,
+    loading,
+    error,
+    showModal,
+    setShowModal,
+    addTodo,
+  }
+}
 
-export { TodoContext, TodoProvider, type Todo };
+export { useTodos };

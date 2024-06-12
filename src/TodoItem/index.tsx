@@ -1,4 +1,4 @@
-import { type Todo } from "../TodoContext";
+import { type Todo } from "../Interfaces";
 import CheckboxSVG from "./square-check-solid.svg?react";
 import DeleteSVG from "./square-xmark-solid.svg?react";
 import "./TodoItem.css";

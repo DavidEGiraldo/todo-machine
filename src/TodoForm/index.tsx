@@ -1,11 +1,13 @@
-import { FormEvent, useContext, useState } from "react";
-import { TodoContext } from "../TodoContext";
+import React, { FormEvent, useState } from "react";
 
 import "./TodoForm.css";
 
-const TodoForm = () => {
-  const { setShowModal, addTodo } = useContext(TodoContext);
+interface TodoFormProps {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  addTodo: (todo: string) => void;
+}
 
+const TodoForm: React.FC<TodoFormProps> = ({ setShowModal, addTodo }) => {
   const [newTodo, setNewTodo] = useState("");
 
   const onSubmit = (event: FormEvent) => {

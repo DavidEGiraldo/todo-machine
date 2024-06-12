@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { TodoContext } from "../TodoContext";
 import AddSVG from "./square-plus-solid.svg?react";
 import "./AddTodoButton.css";
 
-const AddTodoButton = () => {
-  const { setShowModal } = useContext(TodoContext);
+interface AddTodoButtonProps {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const AddTodoButton: React.FC<AddTodoButtonProps> = ({ setShowModal }) => {
   return (
     <AddSVG className={"add-todo-button"} onClick={() => setShowModal(true)} />
   );

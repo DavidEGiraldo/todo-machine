@@ -1,14 +1,3 @@
-h1 {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 700;
-  font-size: var(--xl);
-  color: var(--nord8);
-  text-align: center;
-  margin: 0;
-  padding: 20px;
-  transition: color 400ms ease-in-out 0s;
-}
-
 h2 {
   font-family: 'Rubik', sans-serif;
   font-weight: 600;

@@ -10,6 +10,7 @@ import { TodoForm } from "../TodoForm";
 import { TodoHeader } from "../TodoHeader";
 
 import mountains from "./nord-mountains.png";
+import { TodoError } from "../TodoError";
 
 function App() {
   const {
@@ -34,26 +35,20 @@ function App() {
         <TodoFilter {...{ searchValue, setSearchValue }} />
       </TodoHeader>
 
-      {totalTodos ? (
-        <TodoList>
-          {filteredTodos.map((todo, index) => (
-            <TodoItem
-              key={index}
-              todo={todo}
-              toggleComplete={() => toggleComplete(todo)}
-              deleteTodo={() => deleteTodo(todo)}
-            />
-          ))}
-        </TodoList>
-      ) : (
-        <>
-          {loading ? (
-            <TodoLoader />
-          ) : (
-            <img src={mountains} alt="ice mountains" />
-          )}
-        </>
-      )}
+      <TodoList
+        {...{ error, loading, filteredTodos }}
+        onError={() => <TodoError />}
+        onLoading={() => <TodoLoader />}
+        onEmpty={() => <img src={mountains} alt="ice mountains" />}
+        render={(todo, id) => (
+          <TodoItem
+            key={id}
+            todo={todo}
+            toggleComplete={() => toggleComplete(todo)}
+            deleteTodo={() => deleteTodo(todo)}
+          />
+        )}
+      />
 
       <AddTodoButton {...{setShowModal}}/>
 

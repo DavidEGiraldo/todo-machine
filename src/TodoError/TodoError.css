@@ -1,13 +1,8 @@
-header {
-  display: flex;
-  flex-direction: column ;
-}
-
-h1 {
+#error-message {
   font-family: 'Rubik', sans-serif;
   font-weight: 700;
   font-size: var(--xl);
-  color: var(--nord8);
+  color: var(--nord13);
   text-align: center;
   margin: 0;
   padding: 20px;

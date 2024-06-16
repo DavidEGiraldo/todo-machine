@@ -36,11 +36,13 @@ function App() {
       </TodoHeader>
 
       <TodoList
-        {...{ error, loading, filteredTodos }}
+        {...{ error, loading, totalTodos, filteredTodos, searchValue }}
         onError={() => <TodoError />}
         onLoading={() => <TodoLoader />}
         onEmpty={() => <img src={mountains} alt="ice mountains" />}
-        render={(todo, id) => (
+        onNotFound={(searchValue) => <p id="not-found">No se encontraron To-Do's para: "{searchValue}"</p>}
+      >
+        {(todo, id) => (
           <TodoItem
             key={id}
             todo={todo}
@@ -48,7 +50,7 @@ function App() {
             deleteTodo={() => deleteTodo(todo)}
           />
         )}
-      />
+      </TodoList>
 
       <AddTodoButton {...{setShowModal}}/>
 

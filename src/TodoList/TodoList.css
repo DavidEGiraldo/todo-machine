@@ -5,3 +5,10 @@ ul {
   flex-direction: column;
   gap: 8px;
 }
+
+#not-found {
+  font-family: 'Inter', sans-serif;
+  color: var(--nord13);
+  font-size: var(--md);
+  text-align: center;
+}

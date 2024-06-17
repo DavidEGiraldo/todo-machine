@@ -27,13 +27,20 @@ const TodoList: React.FC<TodoListProps> = ({
   children,
  }) => {
   return (
-    <ul>
+    <>
       {error && onError()}
       {loading && onLoading()}
       {!loading && !totalTodos && onEmpty()}
-      {!loading && totalTodos && !filteredTodos.length && onNotFound(searchValue)}
-      {filteredTodos.map((todo, index) => children(todo, index))}
-    </ul>
+      {!loading && totalTodos > 0 && !filteredTodos.length && onNotFound(searchValue)}
+      {filteredTodos.length > 0 && (
+        <ul>
+          {filteredTodos.map((todo, index) => (
+            children(todo, index)
+          ))}
+        </ul>
+      )}
+    </>
+      
   );
 };
 

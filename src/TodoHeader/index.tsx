@@ -1,14 +1,23 @@
+import { cloneElement, Children, isValidElement, ReactNode } from 'react';
 import './TodoHeader.css'
 
 interface TodoHeaderProps {
-  children: React.ReactNode;
+  children: ReactNode ;
+  loading : boolean;
+  error: boolean;
 }
 
-const TodoHeader: React.FC<TodoHeaderProps> = ({ children }) => {
+interface ChildProps {
+  loading: boolean;
+  error: boolean;
+}
+
+const TodoHeader: React.FC<TodoHeaderProps> = ({ children, loading, error }) => {
+  
   return (
     <header>
       <h1>To-Do Machine</h1>
-      {children}
+      {Children.toArray(children).map((child) => isValidElement<ChildProps>(child) ? cloneElement(child, { loading, error }) : child)}
     </header>
   )
 }

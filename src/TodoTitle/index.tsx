@@ -3,8 +3,8 @@ import "./TodoTitle.css";
 interface TodoTitleProps {
   totalTodos: number;
   completedTodos: number;
-  error: boolean;
-  loading: boolean;
+  error?: boolean;
+  loading?: boolean;
 }
 
 const renderError = () => (

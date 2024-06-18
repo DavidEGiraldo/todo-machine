@@ -3,8 +3,12 @@
   margin: 0 auto;
 }
 
+.todo-filter > input:disabled ~ svg {
+  fill: var(--nord1);
+}
+
 .todo-filter > svg {
-  fill:#D8DEE9;
+  fill: var(--nord4);
   position: absolute;
   top: calc((100% - 16px)/2);
   left: 8px;
@@ -33,4 +37,12 @@ input:focus {
 
 input::placeholder {
   color: var(--nord4)
+}
+
+input:disabled {
+  background-color: var(--nord0);
+}
+
+input:disabled::placeholder {
+  color: var(--nord1);
 }

@@ -30,8 +30,8 @@ function App() {
 
   return (
     <>
-      <TodoHeader>
-        <TodoTitle {...{ completedTodos, error, loading, totalTodos }} />
+      <TodoHeader {...{ loading, error }}>
+        <TodoTitle {...{ completedTodos, totalTodos }} />
         <TodoFilter {...{ searchValue, setSearchValue }} />
       </TodoHeader>
 
@@ -52,7 +52,7 @@ function App() {
         )}
       </TodoList>
 
-      <AddTodoButton {...{setShowModal}}/>
+      <AddTodoButton {...{ setShowModal }}/>
 
       {showModal && (
         <Modal>

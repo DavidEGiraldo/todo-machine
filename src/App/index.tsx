@@ -8,9 +8,10 @@ import { TodoLoader } from "../TodoLoader";
 import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
 import { TodoHeader } from "../TodoHeader";
+import { TodoError } from "../TodoError";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 
 import mountains from "./nord-mountains.png";
-import { TodoError } from "../TodoError";
 
 function App() {
   const {
@@ -59,6 +60,8 @@ function App() {
           <TodoForm {...{ setShowModal, addTodo }}/>
         </Modal>
       )}
+
+      <ChangeAlertWithStorageListener />
     </>
   );
 }

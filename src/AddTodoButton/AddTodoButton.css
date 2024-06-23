@@ -5,8 +5,13 @@
   right: 20px;
   height: 40px;
   cursor: pointer;
-  box-shadow: rgba(15, 17, 21, 0.25) 0px 4px 6px, rgba(15, 17, 21, 0.1) 0px 5px 7px;
-  transition: box-shadow 400ms ease-in-out 0s, background-color 400ms ease-in-out 0s, transform 0.3s ease;
+  box-shadow:
+    rgba(15, 17, 21, 0.25) 0px 4px 6px,
+    rgba(15, 17, 21, 0.1) 0px 5px 7px;
+  transition:
+    box-shadow 400ms ease-in-out 0s,
+    background-color 400ms ease-in-out 0s,
+    transform 0.3s ease;
 }
 
 .add-todo-button:hover {

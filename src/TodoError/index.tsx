@@ -1,11 +1,7 @@
-import './TodoError.css'
+import './TodoError.css';
 
 const TodoError: React.FC = () => {
-  return (
-     <p id='error-message'> 
-      Oops!... ( ._.)
-     </p>
-  )
-}
+  return <p id="error-message">Oops!... ( ._.)</p>;
+};
 
-export { TodoError }
+export { TodoError };

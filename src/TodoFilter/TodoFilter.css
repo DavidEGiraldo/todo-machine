@@ -10,7 +10,7 @@
 .todo-filter > svg {
   fill: var(--nord4);
   position: absolute;
-  top: calc((100% - 16px)/2);
+  top: calc((100% - 16px) / 2);
   left: 8px;
 }
 
@@ -28,7 +28,10 @@
   border-radius: 4px;
   margin: 0;
   line-height: 1.5;
-  transition: border-color 100ms ease-in-out 0s, color 400ms ease-in-out 0s, background-color 400ms ease-in-out 0s;
+  transition:
+    border-color 100ms ease-in-out 0s,
+    color 400ms ease-in-out 0s,
+    background-color 400ms ease-in-out 0s;
 }
 
 input:focus {
@@ -36,7 +39,7 @@ input:focus {
 }
 
 input::placeholder {
-  color: var(--nord4)
+  color: var(--nord4);
 }
 
 input:disabled {

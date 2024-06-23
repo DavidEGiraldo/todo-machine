@@ -1,5 +1,5 @@
-import AddSVG from "./square-plus-solid.svg?react";
-import "./AddTodoButton.css";
+import AddSVG from './square-plus-solid.svg?react';
+import './AddTodoButton.css';
 
 interface AddTodoButtonProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -7,7 +7,7 @@ interface AddTodoButtonProps {
 
 const AddTodoButton: React.FC<AddTodoButtonProps> = ({ setShowModal }) => {
   return (
-    <AddSVG className={"add-todo-button"} onClick={() => setShowModal(true)} />
+    <AddSVG className={'add-todo-button'} onClick={() => setShowModal(true)} />
   );
 };
 

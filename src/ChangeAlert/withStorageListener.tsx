@@ -24,7 +24,9 @@ const withStorageListener = <P extends StorageListenerProps>(
           setStorageChange(true);
         }
       };
+
       window.addEventListener('storage', listener);
+
       return () => {
         window.removeEventListener('storage', listener);
       };

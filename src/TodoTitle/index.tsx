@@ -1,4 +1,4 @@
-import "./TodoTitle.css";
+import './TodoTitle.css';
 
 interface TodoTitleProps {
   totalTodos: number;
@@ -9,7 +9,8 @@ interface TodoTitleProps {
 
 const renderError = () => (
   <h2>
-    <span id="error">¡Ha habido un error!</span>... Parece que tus To-Do's se quedaron congelados
+    <span id="error">¡Ha habido un error!</span>... Parece que tus To-Do's se
+    quedaron congelados
   </h2>
 );
 
@@ -27,13 +28,15 @@ const renderEmpty = () => (
 
 const renderComplete = () => (
   <h2>
-    <span>¡Felicidades!</span> Completaste todos tus To-Do's ... Ahora puedes descansar
+    <span>¡Felicidades!</span> Completaste todos tus To-Do's ... Ahora puedes
+    descansar
   </h2>
 );
 
 const renderDefault = (totalTodos: number, completedTodos: number) => (
   <h2>
-    Has completado <span>{completedTodos}</span> de <span>{totalTodos}</span> To-Do's
+    Has completado <span>{completedTodos}</span> de <span>{totalTodos}</span>{' '}
+    To-Do's
   </h2>
 );
 
@@ -41,7 +44,7 @@ const TodoTitle: React.FC<TodoTitleProps> = ({
   totalTodos,
   completedTodos,
   error,
-  loading
+  loading,
 }) => {
   if (error) return renderError();
   if (loading) return renderLoading();

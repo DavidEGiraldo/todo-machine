@@ -1,4 +1,4 @@
-import "./TodoFilter.css";
+import './TodoFilter.css';
 
 interface TodoFilterProps {
   searchValue: string;
@@ -7,8 +7,12 @@ interface TodoFilterProps {
   error?: boolean;
 }
 
-const TodoFilter: React.FC<TodoFilterProps> = ({ searchValue, setSearchValue, loading, error }) => {
-
+const TodoFilter: React.FC<TodoFilterProps> = ({
+  searchValue,
+  setSearchValue,
+  loading,
+  error,
+}) => {
   return (
     <div className="todo-filter">
       <input

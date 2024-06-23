@@ -7,8 +7,10 @@ form {
   max-width: 400px;
   border-radius: 8px;
   background-color: var(--nord0);
-  box-shadow: rgba(15, 17, 21, 0.25) 0px 4px 6px, rgba(15, 17, 21, 0.1) 0px 5px 7px;
-  transition: box-shadow 400ms ease-in-out 0s,
+  box-shadow:
+    rgba(15, 17, 21, 0.25) 0px 4px 6px,
+    rgba(15, 17, 21, 0.1) 0px 5px 7px;
+  transition: box-shadow 400ms ease-in-out 0s;
 }
 
 label {
@@ -59,7 +61,7 @@ textarea::placeholder {
   border-radius: 4px;
   padding: 4px;
   border: none;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .cancel-button {

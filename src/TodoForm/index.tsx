@@ -1,6 +1,6 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState } from 'react';
 
-import "./TodoForm.css";
+import './TodoForm.css';
 
 interface TodoFormProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,7 +8,7 @@ interface TodoFormProps {
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ setShowModal, addTodo }) => {
-  const [newTodo, setNewTodo] = useState("");
+  const [newTodo, setNewTodo] = useState('');
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();

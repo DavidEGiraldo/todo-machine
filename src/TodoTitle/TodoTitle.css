@@ -9,7 +9,7 @@ h2 {
 }
 
 h2::after {
-  content: "";
+  content: '';
   display: block;
   height: 1px;
   background-color: var(--nord4);
@@ -23,9 +23,9 @@ h2 > span {
 }
 
 #error {
-  color: var(--nord11)
+  color: var(--nord11);
 }
 
 #loading {
-  color: var(--nord13)
+  color: var(--nord13);
 }

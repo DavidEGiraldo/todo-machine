@@ -17,7 +17,7 @@ interface TodoContextProps {
   showModal: boolean;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   addTodo: (todo: string) => void;
-  sincronizeTodos: () => void;
+  synchronizeTodos: () => void;
 }
 
 const useTodos = (): TodoContextProps => {
@@ -26,7 +26,7 @@ const useTodos = (): TodoContextProps => {
   const {
     item: todos,
     saveItem: saveTodos,
-    sincronizeItems: sincronizeTodos,
+    synchronizeItems: synchronizeTodos,
     loading,
     error,
   } = useLocalStorage<Todo[]>('TODOS_V1', []);
@@ -75,7 +75,7 @@ const useTodos = (): TodoContextProps => {
     showModal,
     setShowModal,
     addTodo,
-    sincronizeTodos,
+    synchronizeTodos,
   };
 };
 

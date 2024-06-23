@@ -27,7 +27,7 @@ function App() {
     showModal,
     toggleComplete,
     totalTodos,
-    sincronizeTodos,
+    synchronizeTodos,
   } = useTodos();
 
   return (
@@ -64,7 +64,7 @@ function App() {
         </Modal>
       )}
 
-      <ChangeAlertWithStorageListener {...{ sincronizeTodos }} />
+      <ChangeAlertWithStorageListener {...{ synchronizeTodos }} />
     </>
   );
 }

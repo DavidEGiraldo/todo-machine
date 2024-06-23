@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 interface StorageListenerProps {
-  sincronizeTodos: () => void;
+  synchronizeTodos: () => void;
 }
 
 interface InjectedProps {
@@ -34,7 +34,7 @@ const withStorageListener = <P extends StorageListenerProps>(
 
     const toggleShow = () => {
       setStorageChange(false);
-      (props as P).sincronizeTodos();
+      (props as P).synchronizeTodos();
     };
 
     return (

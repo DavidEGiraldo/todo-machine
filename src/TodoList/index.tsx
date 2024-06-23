@@ -35,7 +35,7 @@ const TodoList: React.FC<TodoListProps> = ({
         totalTodos > 0 &&
         !filteredTodos.length &&
         onNotFound(searchValue)}
-      {!loading && filteredTodos.length > 0 && (
+      {!loading && !error && filteredTodos.length > 0 && (
         <ul>{filteredTodos.map((todo, index) => children(todo, index))}</ul>
       )}
     </>

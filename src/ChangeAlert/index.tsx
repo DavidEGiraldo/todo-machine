@@ -1,9 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
-import { withStorageListener } from "./withStorageListener";
+import { withStorageListener } from './withStorageListener';
 
 interface ChangeAlertProps {
   show: boolean;
-  toggleShow: Dispatch<SetStateAction<boolean>>; 
+  toggleShow: () => void;
 }
 
 const ChangeAlert: React.FC<ChangeAlertProps> = ({ show, toggleShow }) => {
@@ -11,6 +10,7 @@ const ChangeAlert: React.FC<ChangeAlertProps> = ({ show, toggleShow }) => {
     return (
       <div>
         <p>Se ha modificado el local storage</p>
+        <button onClick={toggleShow}>Recargar la información</button>
       </div>
     );
   }
@@ -19,4 +19,4 @@ const ChangeAlert: React.FC<ChangeAlertProps> = ({ show, toggleShow }) => {
 
 const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert);
 
-export { ChangeAlertWithStorageListener };
+export { ChangeAlertWithStorageListener, type ChangeAlertProps };

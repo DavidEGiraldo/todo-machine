@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from './useLocalStorage';
 
-import { type Todo } from "../Interfaces";
+import { type Todo } from '../Interfaces';
 
 interface TodoContextProps {
   completedTodos: number;
@@ -17,24 +17,26 @@ interface TodoContextProps {
   showModal: boolean;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   addTodo: (todo: string) => void;
+  sincronizeTodos: () => void;
 }
 
 const useTodos = (): TodoContextProps => {
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const {
     item: todos,
     saveItem: saveTodos,
+    sincronizeItems: sincronizeTodos,
     loading,
     error,
-  } = useLocalStorage<Todo[]>("TODOS_V1", []);
+  } = useLocalStorage<Todo[]>('TODOS_V1', []);
 
   const completedTodos = todos.filter((todo) => todo.completed).length;
 
   const totalTodos = todos.length;
 
   const filteredTodos = todos.filter((todo) =>
-    todo.text.toLowerCase().includes(searchValue.toLowerCase())
+    todo.text.toLowerCase().includes(searchValue.toLowerCase()),
   );
 
   const toggleComplete = (todo: Todo) => {
@@ -73,7 +75,8 @@ const useTodos = (): TodoContextProps => {
     showModal,
     setShowModal,
     addTodo,
-  }
-}
+    sincronizeTodos,
+  };
+};
 
 export { useTodos };

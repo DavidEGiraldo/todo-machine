@@ -1,5 +1,5 @@
-import { Todo } from "../Interfaces";
-import "./TodoList.css"
+import { Todo } from '../Interfaces';
+import './TodoList.css';
 
 interface TodoListProps {
   error: boolean;
@@ -14,7 +14,7 @@ interface TodoListProps {
   children: (todo: Todo, id: number) => JSX.Element;
 }
 
-const TodoList: React.FC<TodoListProps> = ({ 
+const TodoList: React.FC<TodoListProps> = ({
   error,
   loading,
   filteredTodos,
@@ -25,22 +25,20 @@ const TodoList: React.FC<TodoListProps> = ({
   onEmpty,
   onNotFound,
   children,
- }) => {
+}) => {
   return (
     <>
       {error && onError()}
       {loading && onLoading()}
       {!loading && !totalTodos && onEmpty()}
-      {!loading && totalTodos > 0 && !filteredTodos.length && onNotFound(searchValue)}
-      {filteredTodos.length > 0 && (
-        <ul>
-          {filteredTodos.map((todo, index) => (
-            children(todo, index)
-          ))}
-        </ul>
+      {!loading &&
+        totalTodos > 0 &&
+        !filteredTodos.length &&
+        onNotFound(searchValue)}
+      {!loading && filteredTodos.length > 0 && (
+        <ul>{filteredTodos.map((todo, index) => children(todo, index))}</ul>
       )}
     </>
-      
   );
 };
 

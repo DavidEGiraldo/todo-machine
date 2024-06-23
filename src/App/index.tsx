@@ -1,17 +1,17 @@
-import { useTodos } from "./useTodos";
-import { TodoTitle } from "../TodoTitle";
-import { TodoFilter } from "../TodoFilter";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { AddTodoButton } from "../AddTodoButton";
-import { TodoLoader } from "../TodoLoader";
-import { Modal } from "../Modal";
-import { TodoForm } from "../TodoForm";
-import { TodoHeader } from "../TodoHeader";
-import { TodoError } from "../TodoError";
-import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+import { useTodos } from './useTodos';
+import { TodoTitle } from '../TodoTitle';
+import { TodoFilter } from '../TodoFilter';
+import { TodoList } from '../TodoList';
+import { TodoItem } from '../TodoItem';
+import { AddTodoButton } from '../AddTodoButton';
+import { TodoLoader } from '../TodoLoader';
+import { Modal } from '../Modal';
+import { TodoForm } from '../TodoForm';
+import { TodoHeader } from '../TodoHeader';
+import { TodoError } from '../TodoError';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
-import mountains from "./nord-mountains.png";
+import mountains from './nord-mountains.png';
 
 function App() {
   const {
@@ -27,6 +27,7 @@ function App() {
     showModal,
     toggleComplete,
     totalTodos,
+    sincronizeTodos,
   } = useTodos();
 
   return (
@@ -41,7 +42,9 @@ function App() {
         onError={() => <TodoError />}
         onLoading={() => <TodoLoader />}
         onEmpty={() => <img src={mountains} alt="ice mountains" />}
-        onNotFound={(searchValue) => <p id="not-found">No se encontraron To-Do's para: "{searchValue}"</p>}
+        onNotFound={(searchValue) => (
+          <p id="not-found">No se encontraron To-Do's para: "{searchValue}"</p>
+        )}
       >
         {(todo, id) => (
           <TodoItem
@@ -53,15 +56,15 @@ function App() {
         )}
       </TodoList>
 
-      <AddTodoButton {...{ setShowModal }}/>
+      <AddTodoButton {...{ setShowModal }} />
 
       {showModal && (
         <Modal>
-          <TodoForm {...{ setShowModal, addTodo }}/>
+          <TodoForm {...{ setShowModal, addTodo }} />
         </Modal>
       )}
 
-      <ChangeAlertWithStorageListener />
+      <ChangeAlertWithStorageListener {...{ sincronizeTodos }} />
     </>
   );
 }

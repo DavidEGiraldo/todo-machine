@@ -6,7 +6,6 @@ const useStorageListener = (synchronizeTodos: () => void) => {
   useEffect(() => {
     const listener = (change: StorageEvent) => {
       if (change.key === 'TODOS_V1') {
-        console.log('Hubo cambios en el Local Storage');
         setStorageChange(true);
       }
     };

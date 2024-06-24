@@ -1,36 +1,33 @@
 # Todo Machine
 
-Todo Machine es una aplicación web para crear y administrar listas de pendientes de manera sencilla y eficiente. Desarrollada con React, HTML y CSS utilizando create-react-app, esta herramienta te permite organizar tus tareas diarias de forma intuitiva y rápida.
+Todo Machine is a web application for creating and managing to-do lists in a simple and efficient way. Developed with React, TypeScript, HTML, and CSS using Vite, this tool allows you to organize your daily tasks intuitively and quickly.
 
-## Características principales
+## Main Features
 
-- Agrega, elimina y marca tareas como completadas.
-- Interfaz de usuario amigable, receptiva y responsiva.
-- Almacenamiento local para conservar tus listas incluso después de cerrar el navegador.
-- Despliegue en línea: Visita la [demostración](https://davidegiraldo.github.io/todo-machine/) en GitHub Pages.
+- Add, delete, and mark tasks as completed.
+- User-friendly, responsive, and adaptive interface.
+- Local storage to save your lists even after closing the browser.
+- Storage listener to keep the application updated across all open windows.
+- Online deployment: Visit the [demo](https://davidegiraldo.github.io/todo-machine/) on GitHub Pages.
 
-## Contribuciones
+## Contributions
 
-Las contribuciones son bienvenidas y apreciadas. Si encuentras errores, tienes ideas para nuevas características o mejoras, por favor, abre un "Issue" o envía un "Pull Request". 
+Contributions are welcome and appreciated. If you find bugs, have ideas for new features or improvements, please open an "Issue" or send a "Pull Request".
 
-## Enlaces útiles
+## Useful Links
 
-- [Documentación de React](https://reactjs.org/docs/getting-started.html)
-- [Documentación Create React App](https://github.com/facebook/create-react-app)
-  
-## Créditos
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Vite Documentation](https://vitejs.dev/guide/)
 
-Este proyecto fue desarrollado por [David Giraldo](https://github.com/DavidEGiraldo).
+## Credits
 
-## Licencia
+This project was developed by [David Giraldo](https://github.com/DavidEGiraldo).
 
-Este proyecto está bajo la Licencia MIT. Siéntete libre de utilizar el código en tus propios proyectos y modificarlo según tus necesidades.
+## License
+
+This project is under the MIT License. Feel free to use the code in your own projects and modify it as needed.
 
 ------------------
-
-## Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -38,58 +35,18 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `dist` folder.\
+Compiles the TypeScript code and correctly bundles React in production mode, optimizing the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run serve`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Previews the built application in production locally.
 
-### `npm run eject`
+### `npm run deploy`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Deploys the application to GitHub Pages.

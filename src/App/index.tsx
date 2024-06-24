@@ -9,7 +9,7 @@ import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
 import { TodoHeader } from '../TodoHeader';
 import { TodoError } from '../TodoError';
-import { ChangeAlertWithStorageListener } from '../ChangeAlert';
+import { ChangeAlert } from '../ChangeAlert';
 
 import mountains from './nord-mountains.png';
 
@@ -64,7 +64,7 @@ function App() {
         </Modal>
       )}
 
-      <ChangeAlertWithStorageListener {...{ synchronizeTodos }} />
+      <ChangeAlert {...{ synchronizeTodos }} />
     </>
   );
 }

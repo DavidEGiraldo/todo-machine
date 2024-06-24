@@ -1,13 +1,14 @@
 import { Modal } from '../Modal';
-import { withStorageListener } from './withStorageListener';
+import { useStorageListener } from './useStorageListener';
 import './ChangeAlert.css';
 
 interface ChangeAlertProps {
-  show: boolean;
-  toggleShow: () => void;
+  synchronizeTodos: () => void;
 }
 
-const ChangeAlert: React.FC<ChangeAlertProps> = ({ show, toggleShow }) => {
+const ChangeAlert: React.FC<ChangeAlertProps> = ({ synchronizeTodos }) => {
+  const { show, toggleShow } = useStorageListener(synchronizeTodos);
+
   if (show) {
     return (
       <Modal>
@@ -22,6 +23,4 @@ const ChangeAlert: React.FC<ChangeAlertProps> = ({ show, toggleShow }) => {
   return null;
 };
 
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert);
-
-export { ChangeAlertWithStorageListener, type ChangeAlertProps };
+export { ChangeAlert };

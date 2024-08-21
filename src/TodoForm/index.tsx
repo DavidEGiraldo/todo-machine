@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { type FormEvent, useState } from 'react';
 
 import './TodoForm.css';
 
@@ -20,19 +20,16 @@ const TodoForm: React.FC<TodoFormProps> = ({ setShowModal, addTodo }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      <label>Crea tu nuevo To-Do</label>
+      <label htmlFor="new-todo">Crea tu nuevo To-Do</label>
       <textarea
+        id="new-todo"
         placeholder="Escribe aquí..."
         value={newTodo}
         onChange={(event) => setNewTodo(event.target.value)}
         required
       />
       <div className="button-container">
-        <button
-          type="button"
-          className="cancel-button"
-          onClick={() => setShowModal(false)}
-        >
+        <button type="button" className="cancel-button" onClick={() => setShowModal(false)}>
           Cancelar
         </button>
         <button type="submit" className="add-button" disabled={!isTodoValid}>

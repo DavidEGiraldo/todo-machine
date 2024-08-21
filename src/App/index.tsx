@@ -1,4 +1,3 @@
-import { useTodos } from './useTodos';
 import { TodoTitle } from '../TodoTitle';
 import { TodoFilter } from '../TodoFilter';
 import { TodoList } from '../TodoList';
@@ -11,6 +10,7 @@ import { TodoHeader } from '../TodoHeader';
 import { TodoError } from '../TodoError';
 import { ChangeAlert } from '../ChangeAlert';
 
+import { useTodos } from './useTodos';
 import mountains from './nord-mountains.png';
 
 function App() {
@@ -42,8 +42,8 @@ function App() {
         onError={() => <TodoError />}
         onLoading={() => <TodoLoader />}
         onEmpty={() => <img src={mountains} alt="ice mountains" />}
-        onNotFound={(searchValue) => (
-          <p id="not-found">No se encontraron To-Do's para: "{searchValue}"</p>
+        onNotFound={(value) => (
+          <p id="not-found">No se encontraron To-Do&apos;s para: &quot;{value}&quot;</p>
         )}
       >
         {(todo, id) => (

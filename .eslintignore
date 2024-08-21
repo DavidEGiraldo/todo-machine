@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Archivos generados
+dist/
+build/
+
+# Archivos de configuración
+**/*.config.js
+**/*.config.cjs
+**/*.config.ts
+**/*.config.json
+
+# Archivos de caché
+.cache/
+.vscode/

@@ -9,7 +9,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:jsx-a11y/recommended', // Mejora la accesibilidad
+    'plugin:jsx-a11y/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -17,7 +17,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: './tsconfig.json',
+    project: ['./tsconfig.json', './vite-env.d.ts'],
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -29,6 +29,12 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'warn',
     'import/order': ['error', { 'newlines-between': 'always' }],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'import/no-unresolved': [
+      'error',
+      {
+        ignore: ['\\.svg\\?react$'],
+      },
+    ],
   },
   settings: {
     react: {
@@ -36,10 +42,6 @@ module.exports = {
     },
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-      alias: {
-        map: [['@components', './src/components']],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },

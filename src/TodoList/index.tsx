@@ -1,4 +1,4 @@
-import { Todo } from '../Interfaces';
+import { type Todo } from '../Interfaces';
 import './TodoList.css';
 
 interface TodoListProps {
@@ -25,16 +25,13 @@ const TodoList: React.FC<TodoListProps> = ({
   onEmpty,
   onNotFound,
   children,
-}) => {
+}: TodoListProps) => {
   return (
     <>
       {error && onError()}
       {loading && onLoading()}
       {!loading && !totalTodos && onEmpty()}
-      {!loading &&
-        totalTodos > 0 &&
-        !filteredTodos.length &&
-        onNotFound(searchValue)}
+      {!loading && totalTodos > 0 && !filteredTodos.length && onNotFound(searchValue)}
       {!loading && !error && filteredTodos.length > 0 && (
         <ul>{filteredTodos.map((todo, index) => children(todo, index))}</ul>
       )}

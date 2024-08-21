@@ -40,17 +40,12 @@ const reducer = <T,>(state: State<T>, action: Action<T>): State<T> => {
 };
 
 const useLocalStorage = <T,>(itemName: string, initialValue: T) => {
-  const [state, dispatch] = useReducer(
-    reducer<T>,
-    initialState<T>(initialValue),
-  );
+  const [state, dispatch] = useReducer(reducer<T>, initialState<T>(initialValue));
   const { item, loading, error, synchronized } = state;
 
   const onError = () => dispatch({ type: ActionTypes.ERROR });
-  const onSuccess = (parsedItem: T) =>
-    dispatch({ type: ActionTypes.SUCCESS, payload: parsedItem });
-  const onSave = (newItem: T) =>
-    dispatch({ type: ActionTypes.SAVE, payload: newItem });
+  const onSuccess = (parsedItem: T) => dispatch({ type: ActionTypes.SUCCESS, payload: parsedItem });
+  const onSave = (newItem: T) => dispatch({ type: ActionTypes.SAVE, payload: newItem });
   const onSynchronize = () => dispatch({ type: ActionTypes.SYNCHRONIZE });
 
   useEffect(() => {
@@ -67,7 +62,7 @@ const useLocalStorage = <T,>(itemName: string, initialValue: T) => {
           parsedItem = JSON.parse(localStorageItem) as T;
         }
         onSuccess(parsedItem);
-      } catch (error) {
+      } catch (e) {
         onError();
       }
     }, 3000);

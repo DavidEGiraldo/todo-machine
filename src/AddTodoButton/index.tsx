@@ -5,10 +5,8 @@ interface AddTodoButtonProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddTodoButton: React.FC<AddTodoButtonProps> = ({ setShowModal }) => {
-  return (
-    <AddSVG className={'add-todo-button'} onClick={() => setShowModal(true)} />
-  );
+const AddTodoButton: React.FC<AddTodoButtonProps> = ({ setShowModal }: AddTodoButtonProps) => {
+  return <AddSVG className={'add-todo-button'} onClick={() => setShowModal(true)} />;
 };
 
 export { AddTodoButton };

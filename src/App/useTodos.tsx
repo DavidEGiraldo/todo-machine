@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { useLocalStorage } from './useLocalStorage';
-
 import { type Todo } from '../Interfaces';
+
+import { useLocalStorage } from './useLocalStorage';
 
 interface TodoContextProps {
   completedTodos: number;
